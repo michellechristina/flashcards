@@ -1,16 +1,14 @@
-var ClozeCard = function(text, cloze) {
+var ClozeCard = function (text, cloze) {
+    this.full = text;
     this.cloze = cloze;
-    this.full = full;
-    this.partial = function(){
+    this.validCheck = function () {
         if (this.full.includes(this.cloze)) {
-            return this.full.replace(this.cloze, '...');
+            this.partial= this.full.replace(this.cloze, '...');
+        } else {
+            console.log("an unhelpful error message appears")
         }
     }
-    this.noCloze = function() {
-        if (this.cloze === undefined) {
-          console.log("try again");
-        }
-      };
+    this.validCheck();
 }
 
-  module.exports = ClozeCard;
+module.exports = ClozeCard;
